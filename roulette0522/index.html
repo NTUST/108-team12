@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>roulette PAGE</title>
+	<style type="text/css">
+		#lottery{width:570px;height:510px;margin:0px auto;border:4px solid #A5FFEE;}
+		#lottery table{background-color:yellow;}
+		#lottery table td{position:relative;width:190px;height:170px;text-align:center;color:#333;font-index:-999}
+		#lottery table td img{display:block;width:190px;height:170px;}
+		#lottery table td a{width:190px;height:170px;display:block;text-decoration:none;background:url(img/9.jpg) no-repeat top center;}
+		#lottery table td a:hover{background-image:url(img/11.jpg);}
+		#lottery table td.active .mask{display:block;}
+		.mask{
+		    width:100%;
+		    height:100%;
+		    position:absolute;
+		    left:0;
+		    top:0;
+		    background-color: rgba(25,211,222,0.5);
+		    display:none;
+		}
+	</style>
+</head>
+<body>
+	<div style="background-color:#406149">
+
+
+</div>
+
+<style>
+body {
+  background: #222;
+  font-family: "FangSong";
+
+}
+.header{
+  background-color:#333;
+  color: #A5FFEE;
+  padding: 30px;
+  font-size: 100px;
+  margin: 0px;
+  text-align: center;
+}
+.text1{
+  color: rgb(255, 138, 0);
+  font-size: 80px;
+  text-align: center;
+}
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0; 
+  font-size: 30px;
+  overflow: hidden;
+  background-color: #555;
+}
+li {
+  float: left;
+  width: 20%;
+}
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+li a:hover {
+  background-color: #777;
+  color: pink;
+}
+</style>
+
+<div>
+<h1 class="header">NTUSTდ NTNU</h1> <!--標題-->
+</div>
+<div style="background-color:#222;font-size:5px;">
+<br>
+</div>
+<div>
+<ul>
+  <li><a class="active" href="home.html">Home</a></li>
+  <li><a href="#news">Personal</a></li>
+  <li><a href="#contact">Change</a></li>
+  <li><a href="game.html">Game</a></li>
+  <li><a href="#about">Wanted</a></li>
+</ul>
+</div>
+<style >
+.div1{
+  float: left;
+  height: 700px; 
+  color: #A5FFEE;
+}
+</style>
+<div style="background-color:#222;font-size:5px;">
+<br>
+</div>
+
+  <div class="div1" style="background-color:#444;width: 29.7%;">
+  <h style="font-size : 40px">轉盤心動動!</h><br>
+  <br>
+  <h style="font-size : 34px">按下九宮格中間的<img src="img/9.jpg" style="height: 34px; width: 38px"><br>尋找新緣分!</h>
+
+
+  </div>
+  <div class="div1" style="background-color:##406149;width: 0.6%;">
+  </div>
+ <div class="div1" style="background-color:#444;width: 69.7%;">
+ 	<br>
+		<div id="lottery">
+		    <table border="0" cellpadding="0" cellspacing="0">
+		        <tr>
+		            <td class="lottery-unit lottery-unit-0"><img src="img/1.jpg"><div class="mask"></div></td>
+		            <td class="lottery-unit lottery-unit-1"><img src="img/2.jpg"><div class="mask"></div></td>
+		            <td class="lottery-unit lottery-unit-2"><img src="img/3.jpg"><div class="mask"></div></td>
+		        </tr>
+		        <tr>
+		            <td class="lottery-unit lottery-unit-7"><img src="img/4.jpg"><div class="mask"></div></td>
+		            <td><a href="#"></a></td>
+		            <td class="lottery-unit lottery-unit-3"><img src="img/5.jpg"><div class="mask"></div></td>
+		        </tr>
+		        <tr>
+		            <td class="lottery-unit lottery-unit-6"><img src="img/6.jpg"><div class="mask"></div></td>
+		            <td class="lottery-unit lottery-unit-5"><img src="img/7.jpg"><div class="mask"></div></td>
+		            <td class="lottery-unit lottery-unit-4"><img src="img/8.jpg"><div class="mask"></div></td>
+		        </tr>
+		    </table>
+		</div>
+		</div>
+	
+	
+	<script src="http://cdn.bootcss.com/jquery/1.11.0/jquery.min.js" type="text/javascript"></script>
+	<script>window.jQuery || document.write('<script src="js/jquery-1.11.0.min.js"><\/script>')</script>
+	<script type="text/javascript">
+		var lottery={
+		    index:-1,    //当前转动到哪个位置，起点位置
+		    count:0,    //总共有多少个位置
+		    timer:0,    //setTimeout的ID，用clearTimeout清除
+		    speed:20,    //初始转动速度
+		    times:0,    //转动次数
+		    cycle:50,    //转动基本次数：即至少需要转动多少次再进入抽奖环节
+		    prize:-1,    //中奖位置
+		    init:function(id){
+		        if ($("#"+id).find(".lottery-unit").length>0) {
+		            $lottery = $("#"+id);
+		            $units = $lottery.find(".lottery-unit");
+		            this.obj = $lottery;
+		            this.count = $units.length;
+		            $lottery.find(".lottery-unit-"+this.index).addClass("active");
+		        };
+		    },
+		    roll:function(){
+		        var index = this.index;
+		        var count = this.count;
+		        var lottery = this.obj;
+		        $(lottery).find(".lottery-unit-"+index).removeClass("active");
+		        index += 1;
+		        if (index>count-1) {
+		            index = 0;
+		        };
+		        $(lottery).find(".lottery-unit-"+index).addClass("active");
+		        this.index=index;
+		        return false;
+		    },
+		    stop:function(index){
+		        this.prize=index;
+
+		        return false;
+		    } 
+		};
+
+		function roll(){
+		    lottery.times += 1;
+		    lottery.roll();//转动过程调用的是lottery的roll方法，这里是第一次调用初始化
+		    if (lottery.times > lottery.cycle+10 && lottery.prize==lottery.index) {
+		        clearTimeout(lottery.timer);
+		        lottery.prize=-1;
+		        lottery.times=0;
+		        alert("抽到!");
+		        window.history.back(-2);
+		        click=false;
+		    }else{
+		        if (lottery.times<lottery.cycle) {
+		            lottery.speed -= 10;
+		        }else if(lottery.times==lottery.cycle) {
+		            var index = Math.random()*(lottery.count)|0;//中奖物品通过一个随机数生成
+		            lottery.prize = index;
+
+		        }else{
+		            if (lottery.times > lottery.cycle+10 && ((lottery.prize==0 && lottery.index==7) || lottery.prize==lottery.index+1)) {
+		                lottery.speed += 110;
+		            }else{
+		                lottery.speed += 20;
+		            }
+		        }
+		        if (lottery.speed<40) {
+		            lottery.speed=40;
+		        };
+		        //console.log(lottery.times+'^^^^^^'+lottery.speed+'^^^^^^^'+lottery.prize);
+		        lottery.timer = setTimeout(roll,lottery.speed);
+		        //循环调用
+		       //  var x=true;
+		       // if(lottery.speed==0&&x){
+         //              alert("抽到");
+         //              x=false;
+		       //  }
+
+		    }
+
+		    return false;
+		}
+
+		
+
+		var click=false;
+
+		window.onload=function(){
+		    lottery.init('lottery');
+		    $("#lottery a").click(function(){
+		        if (click) {//click控制一次抽奖过程中不能重复点击抽奖按钮，后面的点击不响应
+		            return false;
+		        }else{
+		            lottery.speed=100;
+		            roll(); 
+		              //转圈过程不响应click事件，会将click置为false
+		            click=true; //一次抽奖完成后，设置click为true，可继续抽奖
+
+		            return false;
+		        }
+		    });
+
+
+		};
+	</script>
+	<!--
+		<script>
+  var index = Math.random()*(lottery.count)|0;
+  $("#lottery a").click(function(){
+       var islogin=checkLogin();
+       if(islogin){//已登录用户才能去抽奖
+         if (click) {
+          return false;
+        }else{
+          //向后端接口发请求返回中奖结果
+          var geturl="http://xxxxxx?username="+username+"&token="+token;
+           $.ajax({
+           　url:geturl,
+            type:"GET",
+            dataType:"json",
+           async:false,
+          success:function(data){
+              if(data.errorcode==0){
+              var rewardid=data["message"]["rewardid"];
+              var cardno=data["message"]["rewardCardNo"];
+               var passno=data["message"]["rewardCardPass"];
+               var prize=-1;
+                var content="";
+               if(rewardid=="iphone6"){
+               lottery.prize=0;
+               prize=0;
+              content="一部iphone6手机";
+              $("#content1").html(content);
+                }else if(rewardid=="PPTVKING"){
+                lottery.prize=1;
+              prize=1;
+               content="一部PPTV KING7s 3D影音手机";
+               $("#content1").html(content);
+                /*...  */
+               }else if(rewardid=="legao"){
+              lottery.prize=5;
+              prize=5;
+              content="一份乐高的玩具";
+                $("#content1").html(content);
+               }
+               
+              lottery.speed=100;
+              roll();
+              click=true;  
+              return false;
+             }else{
+              /*错误处理*/
+               if(data.errorcode==3){
+              $("#novip").show();
+               }else{
+              $("#notime").show();
+               }
+             }
+           }/*function结束*/
+         });/*ajax结束*/
+      }/*else结束*/
+      }
+});
+	-->
+	</body>
+</html>
