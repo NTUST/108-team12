@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>makefriends</title>
+<style>
+body {
+  background: #222;
+  margin: 0;
+}
+
+.div1{
+  float: left;
+}
+.header{
+ 
+  background-color:#222;
+  color: white;
+  padding: 30px;
+  font-size: 80px;
+  margin: 0px;
+  text-align: center;
+}
+.text1{
+  color: rgb(255, 138, 0);
+  font-size: 80px;
+  text-align: center;
+}
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 5px; 
+  font-size: 20px;
+  overflow: hidden;
+  background-color: #222;
+ 
+}
+li {
+  float: right;
+  width: 20%;
+}
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+}
+li a:hover {
+  background-color: #222;
+  color: #A5FFEE;
+}
+
+.container {
+  max-width: 1200px;
+  margin: auto;
+  display: flex;
+  align-content: center;
+}
+
+.hover-box {
+  max-width: 50%;
+  max-height: 350px;
+  margin: auto;
+  background: #4d674a;
+  box-sizing: border-box;
+  position:relative;
+}
+
+.hover-box .img-box {
+  position: relative;
+  overflow: hidden;
+}
+
+.hover-box .img-box img {
+  margin: auto;
+  transition: transform 0.5s;
+}
+
+.hover-box:hover .img-box img {
+  transform: scale(1);
+}
+
+ .hover-box .info-box {
+  position: absolute;
+  left: 10px;
+  top: 10px;
+  bottom:10px;
+  right:10px;
+  color:#fff;
+  background:rgba(0,0,0,.6);
+  text-align:center;
+  transform:scaleY(0);
+  transition:transform .5s;
+} 
+
+.hover-box .info-box .info-content{
+  position:absolute;
+  top:25%;
+  transform:translateY(-50%);
+  padding:15px;
+}
+
+.hover-box:hover .info-box {
+  transform:scaleY(1);
+}
+
+.hover-box .info-box h2,.hover-box .info-box span{}
+html {
+  scroll-behavior: smooth;
+}
+</style>
+</head>
+<body>
+
+<div >
+<h1 class="header">NTUSTდNTNU</h1> <!--標題-->
+
+  </div>
+
+<div>
+<ul>
+  <li><a class="active" href="makefriends.html">Home</a></li>
+  <li><a href="#news">Personal</a></li>
+  <li><a href="#contact">&nbsp;Change&nbsp;</a></li>
+  <li><a href="GAME.html">&nbsp;&nbsp;Game&nbsp;&nbsp;</a></li>
+  <li><a href="#about">&nbsp;Wanted&nbsp;</a></li>
+</ul>
+</div>
+
+<hr style="border-top: 3px solid #A5FFEE;">
+
+<style>
+#ban {
+  width: 100%;
+  height: auto;
+  position:relative;
+  top:0px;
+}
+</style>
+<div>
+ <img src="photo/night.jpg" id="ban">
+ <a href="#section1" target="_blank" style=" position:relative;top:-330px;background-color: rgba(252,252,252,0.5);color:rgba(252,252,252,0);text-align: center;display: inline-block;left: 10%;padding:10px;width: 200px"><h1 style="color:black"><b>尋人。啟事</b></h1></a>
+<hr id="section1"style="border-top: 3px solid #A5FFEE;position:relative;top:-110px;">
+</div>
+
+
+
+
+
+
+
+
+
+
+<div class="container" >
+  <div class="hover-box">
+    <div class="img-box"><img src="photo/girl.jpg" width="350" height="350"></div>
+    <div class="info-box">
+  <div class="info-content">
+    <h2>師大表演藝術系</h2>
+    <span>想來和我賭一場嗎</span>
+  </div>
+ </div>
+ </div>
+
+  <div class="hover-box">
+    <div class="img-box"><img src="photo/girl2.jpg" width="350" height="350"></div>
+    <div class="info-box">
+  <div class="info-content">
+    <h2>師大音樂系</h2>
+    <span>你願意為我伴奏嗎</span>
+  </div>
+ </div>
+ </div>
+
+  <div class="hover-box">
+    <div class="img-box"><img src="photo/girl6.jpg" width="350" height="350"></div>
+    <div class="info-box">
+  <div class="info-content">
+    <h2>台科工管系</h2>
+    <span>想和我交朋友嗎</span>
+  </div>
+ </div>
+ </div>
+</div>
+
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+
+<div class="container">
+  <div class="hover-box">
+    <div class="img-box"><img src="photo/boy.jpg" width="350" height="350"></div>
+    <div class="info-box">
+  <div class="info-content">
+    <h2>台科電機系</h2>
+    <span>沒有硬體就沒有軟體，正如我的生活不能缺少你</span>
+  </div>
+ </div>
+ </div>
+
+  <div class="hover-box">
+    <div class="img-box"><img src="photo/boy2.jpg" width="350" height="350"></div>
+    <div class="info-box">
+  <div class="info-content">
+    <h2>台科電子系</h2>
+    <span>就算我們之間電阻再大，我也會化成電流通往你心房</span>
+  </div>
+ </div>
+ </div>
+
+  <div class="hover-box">
+    <div class="img-box"><img src="photo/boy3.jpg" width="350" height="350"></div>
+    <div class="info-box">
+  <div class="info-content">
+    <h2>台科設計系</h2>
+    <span>設計系肝都非常強大，我不怕累倒</span>
+  </div>
+ </div>
+ </div>
+</div>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+<div class="container">
+  <div class="hover-box">
+    <div class="img-box"><img src="photo/girl4.jpg" width="350" height="350"></div>
+    <div class="info-box">
+  <div class="info-content">
+    <h2>師大運動系</h2>
+    <span>想找個會一起運動的男生</span>
+  </div>
+ </div>
+ </div>
+
+  <div class="hover-box">
+    <div class="img-box"><img src="photo/girl5.jpg" width="350" height="350"></div>
+    <div class="info-box">
+  <div class="info-content">
+    <h2>師大電機系</h2>
+    <span>我是理科的女生喔</span>
+  </div>
+ </div>
+ </div>
+
+  <div class="hover-box">
+    <div class="img-box"><img src="photo/boy4.jpg" width="350" height="350"></div>
+    <div class="info-box">
+  <div class="info-content">
+    <h2>師大運動保健系</h2>
+    <span>找個一起健身的女孩</span>
+  </div>
+ </div>
+ </div>
+</div>
+
+</body>
+</html>
