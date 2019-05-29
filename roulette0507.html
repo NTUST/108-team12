@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>roulette PAGE</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head>
+<body>
+
+<div style="background-color:#406149">
+
+
+</div>
+
+<style>
+body {
+  background: #222;
+  font-family: "FangSong";
+
+}
+.header{
+  background-color:#333;
+  color: #A5FFEE;
+  padding: 30px;
+  font-size: 100px;
+  margin: 0px;
+  text-align: center;
+}
+.text1{
+  color: rgb(255, 138, 0);
+  font-size: 80px;
+  text-align: center;
+}
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0; 
+  font-size: 30px;
+  overflow: hidden;
+  background-color: #555;
+}
+li {
+  float: left;
+  width: 20%;
+}
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+li a:hover {
+  background-color: #777;
+  color: pink;
+}
+</style>
+
+<div>
+<h1 class="header">NTUSTდ NTNU</h1> <!--標題-->
+</div>
+<div style="background-color:#222;font-size:5px;">
+<br>
+</div>
+<div>
+<ul>
+  <li><a class="active" href="home.html">Home</a></li>
+  <li><a href="#news">Personal</a></li>
+  <li><a href="#contact">Change</a></li>
+  <li><a href="game.html">Game</a></li>
+  <li><a href="#about">Wanted</a></li>
+</ul>
+</div>
+<style >
+.div1{
+  float: left;
+  height: 700px; 
+  color: #A5FFEE;
+}
+</style>
+<div style="background-color:#222;font-size:5px;">
+<br>
+</div>
+
+  <div class="div1" style="background-color:#444;width: 29.7%;">
+  <h3>轉盤玩法</h3>
+  </div>
+  <div class="div1" style="background-color:##406149;width: 0.6%;">
+  </div>
+ <div class="div1" style="background-color:#FFF;width: 69.7%;">
+   <h3>轉盤放這</h3>
+</div>
+
+
+<style >
+#myBtn {
+  display: none;
+  position: fixed;
+  bottom: 20px;
+  right: 30px;
+  z-index: 99;
+  font-size: 18px;
+  border: none;
+  outline: none;
+  background-color: pink;
+  color: yellow;
+  cursor: pointer;
+  padding: 15px;
+  border-radius: 4px;
+}
+
+#myBtn:hover {
+  background-color: #A5FFEE;
+  color: orange;
+}</style>
+<button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
+<script>
+// When the user scrolls down 20px from the top of the document, show the button
+window.onscroll = function() {scrollFunction()};
+
+function scrollFunction() {
+  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+    document.getElementById("myBtn").style.display = "block";
+  } else {
+    document.getElementById("myBtn").style.display = "none";
+  }
+}
+
+// When the user clicks on the button, scroll to the top of the document
+function topFunction() {
+  document.body.scrollTop = 0;
+  document.documentElement.scrollTop = 0;
+}
+</script>
+</body>
+</html>
