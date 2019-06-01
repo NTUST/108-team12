@@ -26,6 +26,7 @@
 </head>
 <body>
 	<style>
+
 body {
   background: #222;
   margin: 0;
@@ -33,13 +34,15 @@ body {
 .div1{
 	float: left;
 }
-.header{
-  background-color:#333;
-  color: #A5FFEE;
-  padding: 30px;
-  font-size: 100px;
-  margin: 0px;
-  text-align: center;
+.header1{
+    background-color: #333;
+    color: #A5FFEE;
+    padding: 30px;
+    font-size: 100px;
+    margin: 0px;
+    text-align: center;
+    font-family: Times New Romen;
+    display: block;
 }
 .text1{
   color: rgb(255, 138, 0);
@@ -69,10 +72,20 @@ li a:hover {
   background-color: #777;
   color: pink;
 }
-
+#content {
+    position: relative;
+}
+#content img {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+	height: 100px;
+	width: 100px;
+}
 </style>
-<div>
-<h1 class="header">NTUSTდ NTNU</h1> <!--標題-->
+<div id="content">
+<img src="http://www.sclance.com/pngs/person-icon-png/person_icon_png_1009129.png"/>
+<h1 class="header1">NTUSTდ NTNU</h1> <!--標題-->
 </div>
 <div style="background-color:#222;font-size:5px;">
 <br>

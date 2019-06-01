@@ -68,6 +68,14 @@ a:hover
 a img
 {
 	border: none;
+	background: url(../images/img01) no-repeat center top;
+	padding-top: 2em;
+	padding-bottom: 2em;
+	
+	background-size: cover;
+	background-attachment: fixed;
+	-webkit-backface-visibility: hidden;
+	-webkit-transform: translateZ(0);
 }
 
 img.border
