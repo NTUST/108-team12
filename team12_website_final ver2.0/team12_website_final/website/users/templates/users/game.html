@@ -1,0 +1,353 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+  <meta charset="UTF-8" />
+  <head>
+    <title>GAME PAGE</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  </head>
+  <body>
+    <div style="background-color:#406149"></div>
+
+    <style>
+      body {
+        background: #222;
+        margin: 0;
+      }
+      .header1{
+          background-color: #333;
+          color: #A5FFEE;
+          padding: 30px;
+          font-size: 100px;
+          margin: 0px;
+          text-align: center;
+          font-family: Times New Romen;
+          display: block;
+      }
+      .text1{
+        color: rgb(255, 138, 0);
+        font-size: 80px;
+        text-align: center;
+      }
+      ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0; 
+        font-size: 30px;
+        overflow: hidden;
+        background-color: #555;
+      }
+      li {
+        float: left;
+        width: 20%;
+      }
+      li a {
+        display: block;
+        color: white;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+      }
+      li a:hover {
+        background-color: #777;
+        color: pink;
+      }
+      #content {
+          position: relative;
+      }
+      #content img {
+          position: absolute;
+          top: 0px;
+          right: 0px;
+        height: 100px;
+        width: 100px;
+      }
+      #content {
+        position: relative;
+        float: right;
+      }
+      #content img {
+        position: absolute;
+        top: 0px;
+        right: 0px;
+        height: 100px;
+        width: 100px;
+      }
+      #content ul li ul {
+        /* 讓第二層ul跳脫文件流以利定位 */
+        position:absolute;
+        /* 固定寬度 */
+        width:100px;
+        /* 避免出現捲軸 */
+        overflow:visible;
+        /* 讓ul與母階層li相同位置 */
+        clear:left;
+        margin-top: 30px;
+        margin-right: 0;
+        margin-bottom: 0;
+        margin-left: 0;
+      }
+      /* 修正IE對定位差異 */
+      *:first-child+html #content ul li ul {
+        margin-top:0;
+      }
+      /* 修正IE6絕對定位差異 */
+      * html #content ul li ul {
+        margin-top:0;
+      }
+      #content ul li ul li {
+        /* 覆寫繼承自第一層的浮動設定 */
+        float:none;
+        text-align: center;
+      }
+      #content ul li ul li a {
+        /* 覆寫繼承自第一層的浮動設定 */
+        float:none;
+        width: 100%;/* 註：display、height、padding繼承第一層的設定 */
+      }
+      #content ul li ul li ul {
+        margin-top: -30px;
+        margin-right: 0;
+        margin-bottom: 0;
+        width: 100%;
+      }
+      /* 修正IE7絕對定位差異 */
+      *:first-child+html #content ul li ul li ul {
+        margin-top:-30px;
+      }
+      #content ul li ul li ul li {
+      /* width、float繼承第二層，免設定 */
+      }
+      #content ul li ul li ul li a {
+      /* width、float繼承第二層，免設定 */
+      }
+      /* ---------- 隱藏與顯示階層 ---------- */
+      #content ul li ul {
+        /* 預先隱藏第二層 */
+        visibility:hidden;
+      }
+      #content ul li:hover ul {
+        /* 觸動第一層時，顯示第二層 */
+        visibility:visible;
+      }
+      #content ul li:hover ul li ul {
+        /* 顯示第二層時，隱藏第三層，避免同時彈出 */
+        visibility:hidden;
+      }
+      #content ul li ul li:hover ul {
+        /* 觸動第二層時，顯示第三層 */
+        visibility:visible;
+      }
+      #content ul li ul li:hover ul li ul {
+        /* 顯示第三層時，隱藏第四層，避免同時彈出 */
+        visibility:hidden;
+      }
+      #content ul li ul li ul li:hover ul {
+        /* 觸動第三層時，顯示第四層 */
+        visibility:visible;
+      }
+      /* ---------- 以下為美化用，非必需 ---------- */
+      
+      /* 預設字體 */
+      #content {
+        font-size:12px;
+        font-family:Arial, Helvetica, sans-serif;
+      }
+      /* 第一層ul背景色彩與邊框 */
+      #content ul {
+        background:#6f6f6f;
+      }
+      /* 第一層a字型 */
+      #content ul li a {
+        color:#FFF;
+        text-decoration:none;
+        line-height: 30px;
+      }
+      /*第二層ul背景色彩與邊框  */
+      #content ul li ul {
+        background:#efefef;
+      }
+      /* 第二層a字型 */
+      content ul li ul li a {
+        font-size:12px;
+        color:#333333;
+        text-decoration:none;
+      }
+      /* 觸動第一層li時，改變背景色 */
+      #content ul li:hover, #content ul li a:hover {
+        background:#efefef;
+      }
+      #content ul li:hover a {
+        color:#333333;
+      }
+      /* 觸動第二層以上li時改變背景色 */
+      #content ul li ul li:hover, #content ul li ul li a:hover {
+        background:#dfdfdf;
+      }
+    </style>
+
+    <div id="content">
+      <ul style="height: 1px;">
+        <li>
+          <a href="#"><img src="http://www.sclance.com/pngs/person-icon-png/person_icon_png_1009129.png" style="width: 100px;"></a>
+          <ul id="content" style="right: 0px;">
+            <li id="content"><a style="width: 80px" href="{% url 'profile' %}">Profile</a></li>
+            <li id="content"><a style="width: 80px" href="{% url 'login' %}">Logout</a></li>
+            <li id="content"><a style="width: 80px" href="{% url 'rule' %}">Help
+      </a></li></ul><a href="#">
+    </a></li><a href="#">  
+</a></ul></div>
+
+  <h1 class="header1">NTUSTდ NTNU</h1> <!--標題-->
+    <div style="background-color:#222;font-size:5px;">
+      <br>
+    </div>
+
+    <div>
+      <ul>
+        <li><a href="{% url 'home' %}">Home</a></li>
+        <li><a href="{% url 'activity' %}">Activity</a></li>
+        <li><a href="{% url 'wanted' %}">Wanted</a></li>
+        <li><a href="{% url 'game' %}">Game</a></li>
+        <!--<li><a href="../Game/game.html">Personal</a></li>-->
+        <li><a href="{% url 'roulette' %}">Roulette</a></li>
+      </ul>
+      <div style="background-color:#222;font-size:5px;">
+        <br>
+      </div>
+
+      <style>
+        .bgimg-1, .bgimg-2, .bgimg-3 ,.bgimg-4{
+          position: relative;
+          opacity: 0.25;
+          background-attachment: fixed;
+          background-position: center;
+          background-repeat: no-repeat;
+          background-size: cover;
+        }
+        .bgimg-1 {
+          background-image: url("g.png");
+          min-height: 100%;
+        }
+        .bgimg-2 {
+          background-image: url("https://1.bp.blogspot.com/-durxOzPiv7o/WoVZKHPKVnI/AAAAAAAADIE/pFottlg9apgaDfP09lj1WTNUfm9zhbuXQCLcBGAs/s1600/03.jpg");
+          
+          min-height: 500px;
+        }
+        .bgimg-3 {
+          background-image: url("https://img.itch.zone/aW1hZ2UvMjA0MTQxLzk4NDQ2Ny5wbmc=/original/Y3lEEJ.png");
+          min-height: 500px;
+        }
+        .bgimg-4 {
+          background-image: url("https://imag.malavida.com/mvimgbig/download-fs/agar-io-16001-2.jpg");
+          min-height: 500px;
+        }
+        .caption {
+          position: absolute;
+          left: 0;
+          top: 30%;
+          width: 100%;
+          text-align: center;
+
+          color: #000;
+        }
+        .caption span.border {
+          background-color: #111;
+          color: #fff;
+          padding: 18px;
+          font-size: 25px;
+          letter-spacing: 10px;
+        }
+        h3 {
+          letter-spacing: 5px;
+          text-transform: uppercase;
+          font: 20px "Lato", sans-serif;
+          color: #A5FFEE;
+        }
+        /* Turn off parallax scrolling for tablets and phones */
+        @media only screen and (max-device-width: 1024px) {
+          .bgimg-1, .bgimg-2, .bgimg-3 ,.bgimg-4{
+            background-attachment: scroll;
+          }
+        }
+      </style>
+
+      <div class="bgimg-2">
+        <div class="caption">
+          <span class="border" style="background-color:transparent;font-size:25px;color: #000;"></span>
+        </div>
+      </div>
+
+      <div style="position:relative;">
+        <div style="color:#A5FFEE;background-color:#282E34;text-align:center;padding:50px 80px;text-align: justify;">
+          <a href="https://gartic.io/" style=" letter-spacing: 5px;text-transform: uppercase;font-size:20px; font-family:sans-serif ; color: #A5FFEE;">GARTIC.IO</a>
+          <p> 每個人輪流塗鴉，其他人負責猜，誰先到120分就贏了。按下ROOM創造專屬彼此的房間～一起享受猜謎樂趣吧:)<br>Draw and guess the words as fastest as you can! Join on worldwide rooms or create your own.</p>
+        </div>
+      </div>
+
+      <div class="bgimg-3">
+        <div class="caption">
+          <span class="border" style="background-color:transparent;font-size:25px;color: #000;"></span>
+        </div>
+      </div>
+
+      <div style="position:relative;">
+        <div style="color:#A5FFEE;background-color:#282E34;text-align:center;padding:50px 80px;text-align: justify;">
+          <a href="https://surviv.io/" style=" letter-spacing: 5px;text-transform: uppercase;font-size:20px; font-family:sans-serif ; color: #A5FFEE;">SURVIV.IO</a>
+          <p>就是吃雞！按下創建隊伍一起刺激一下><br>The goal of surviv.io is to be the last player standing. You only live once per game - there is no respawn!</p>
+        </div>
+      </div>
+
+      <div class="bgimg-4">
+        <div class="caption">
+          <span class="border" style="background-color:transparent;font-size:25px;color: #000;"></span>
+        </div>
+      </div>
+
+      <div style="position:relative;">
+        <div style="color:#A5FFEE;background-color:#282E34;text-align:center;padding:50px 80px;text-align: justify;">
+          <a href="https://agar.io/" style=" letter-spacing: 5px;text-transform: uppercase;font-size:20px; font-family:sans-serif ; color: #A5FFEE;">AGAR.IO</a>
+          <p>吃吃吃！能吃就吃，點選PARTY MODE一起狂歡冒險！<br>Play online with players around the world as you try to become the biggest cell of them all! Control your tiny cell and eat other players to grow larger! But be aware of...</p>
+        </div>
+      </div>
+    </div>
+
+    <style >
+      #myBtn {
+        display: none;
+        position: fixed;
+        bottom: 20px;
+        right: 30px;
+        z-index: 99;
+        font-size: 18px;
+        border: none;
+        outline: none;
+        background-color: pink;
+        color: yellow;
+        cursor: pointer;
+        padding: 15px;
+        border-radius: 4px;
+      }
+      #myBtn:hover {
+        background-color: #A5FFEE;
+        color: orange;
+      }
+    </style>
+
+    <style>
+      .foo{
+        background-color: #777;
+        text-align: center;
+        color: white;
+        font-size: 20px;
+        padding: 10px;
+        font-family: Serif;
+      }
+    </style>
+
+    <footer class="foo">
+      <h4>love love bu bu</h4>
+    </footer>
+
+  </body>
+</html>
